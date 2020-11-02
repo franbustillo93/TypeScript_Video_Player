@@ -48,6 +48,11 @@ export class VideoPlayer extends Component<Props>{
             }
         }
 
+        const stop = () => {
+            pause();
+            seek(0);
+        }
+
         
         return (
             <div >
@@ -59,7 +64,7 @@ export class VideoPlayer extends Component<Props>{
                 <button onClick={play}>Play</button>
                 <button onClick={pause}>Pause</button>
                 <button onClick={() => seek(5)}>Seek</button>
-                
+                <button onClick={stop}>Stop</button>
             </div>
         )
     
