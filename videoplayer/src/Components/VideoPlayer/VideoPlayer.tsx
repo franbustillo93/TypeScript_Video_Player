@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import "./VideoPlayer.css";
 import { VideoPlayerProps } from './types';
+import {VideoPlayerController} from "./VideoPlayerController/VideoPlayerController";
 
 interface Props {
     videoPlayer: VideoPlayerProps
@@ -64,12 +65,15 @@ export class VideoPlayer extends Component<Props>{
                     ref={this.videoRef} 
                  />
                 <p>{this.props.videoPlayer.url}</p>
-                <button onClick={() => openContent(this.props.videoPlayer.url)}> Open Content</button>
-                <button onClick={play}>Play</button>
-                <button onClick={pause}>Pause</button>
-                <button onClick={() => seek(5)}>Seek</button>
-                <button onClick={stop}>Stop</button>
-                <button onClick={destroy}>Destroy</button>
+                <VideoPlayerController 
+                    url = {this.props.videoPlayer.url}
+                    openContent = {openContent}
+                    play = {play}
+                    pause = {pause}
+                    seek = {seek}
+                    stop = {stop}
+                    destroy = {destroy}
+                />
             </div>
         )
     

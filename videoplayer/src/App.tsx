@@ -1,7 +1,7 @@
 import React from 'react';
-import {VideoPlayer} from './VideoPlayer';
+import {VideoPlayer} from './Components/VideoPlayer/VideoPlayer';
 import { MediaPlayer } from 'dashjs';
-import { VideoPlayerProps } from './types';
+import { VideoPlayerProps } from './Components/VideoPlayer/types';
 
 let url = "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd";
 let url2 = "https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd";
