@@ -53,6 +53,10 @@ export class VideoPlayer extends Component<Props>{
             seek(0);
         }
 
+        const destroy = () => {
+            this.props.videoPlayer.player.reset();
+        }
+
         
         return (
             <div >
@@ -65,6 +69,7 @@ export class VideoPlayer extends Component<Props>{
                 <button onClick={pause}>Pause</button>
                 <button onClick={() => seek(5)}>Seek</button>
                 <button onClick={stop}>Stop</button>
+                <button onClick={destroy}>Destroy</button>
             </div>
         )
     
