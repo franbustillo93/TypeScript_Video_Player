@@ -31,15 +31,19 @@ export class VideoPlayer extends Component<Props>{
             }
         }
 
+        const play = () => {
+            this.props.videoPlayer.player.play();
+        }
+
         
         return (
             <div >
                 <video 
                     ref={this.videoRef} 
-                    controls
                  />
                 <p>{this.props.videoPlayer.url}</p>
                 <button onClick={() => openContent(this.props.videoPlayer.url)}> Open Content</button>
+                <button onClick={play}>Play</button>
                 
             </div>
         )
