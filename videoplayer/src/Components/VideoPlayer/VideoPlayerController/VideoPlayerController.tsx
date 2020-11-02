@@ -1,5 +1,14 @@
 import React from 'react';
-import { VideoPlayerControllerProps } from '../types';
+
+interface VideoPlayerControllerProps {
+    url: string;
+    openContent: (url: string) => void;
+    play: () => void;
+    pause: () => void;
+    seek: (at: number) => void;
+    stop: () => void;
+    destroy: () => void;
+}
 
 export const VideoPlayerController:  React.FC<VideoPlayerControllerProps> = (videoPlayerController) => {
     return (
