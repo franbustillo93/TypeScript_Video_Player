@@ -39,6 +39,15 @@ export class VideoPlayer extends Component<Props>{
             this.props.videoPlayer.player.pause();
         }
 
+        const seek = (at: number) => {
+
+            let limitTime =  this.props.videoPlayer.player.duration();
+        
+            if(at <= limitTime) {
+                this.props.videoPlayer.player.seek(at);
+            }
+        }
+
         
         return (
             <div >
@@ -49,6 +58,7 @@ export class VideoPlayer extends Component<Props>{
                 <button onClick={() => openContent(this.props.videoPlayer.url)}> Open Content</button>
                 <button onClick={play}>Play</button>
                 <button onClick={pause}>Pause</button>
+                <button onClick={() => seek(5)}>Seek</button>
                 
             </div>
         )
