@@ -35,6 +35,10 @@ export class VideoPlayer extends Component<Props>{
             this.props.videoPlayer.player.play();
         }
 
+        const pause = () => {
+            this.props.videoPlayer.player.pause();
+        }
+
         
         return (
             <div >
@@ -44,6 +48,7 @@ export class VideoPlayer extends Component<Props>{
                 <p>{this.props.videoPlayer.url}</p>
                 <button onClick={() => openContent(this.props.videoPlayer.url)}> Open Content</button>
                 <button onClick={play}>Play</button>
+                <button onClick={pause}>Pause</button>
                 
             </div>
         )
