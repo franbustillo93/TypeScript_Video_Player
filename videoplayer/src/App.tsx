@@ -1,24 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {VideoPlayer} from './VideoPlayer';
+import { MediaPlayer } from 'dashjs';
+import { VideoPlayerProps } from './types';
 
-function App() {
+let url = "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd";
+let url2 = "https://bitmovin-a.akamaihd.net/content/playhouse-vr/mpds/105560.mpd";
+
+const initialvideoPlayers: Array<VideoPlayerProps> = [
+  {
+    divId: "#MainPlayer", 
+    url: url,
+    player: MediaPlayer().create(),
+    initialized: false
+  },
+  {
+    divId: "#SecondaryPlayer", 
+    url: url2,
+    player: MediaPlayer().create(),
+    initialized: false
+  },
+
+]
+
+const App: React.FC = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My Video Player App</h1>
+
+      {initialvideoPlayers.map((player, index) => (
+        <VideoPlayer 
+          key = {index}
+          videoPlayer = {player}
+        />
+      ))}
+      
     </div>
   );
 }
